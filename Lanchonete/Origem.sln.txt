@@ -1,0 +1,158 @@
+#include<stdio.h> //Biblioteca
+#include<stdlib.h> //Biblioteca
+#include<locale.h> //Biblioteca
+
+int main() //Começo do código
+{
+	setlocale(LC_ALL, "Portuguese"); //Habilita acentos e sinais
+	int pdt = 0;//Declaraçao de variaveis
+	int opcao = -1;//Declaraçao de variaveis
+	int qtd;//Declaraçao de variaveis
+	float soma = 0;//Declaraçao de variaveis
+	int qnt[7] = { 0,0,0,0,0,0,0, };//Declaraçao de variaveis
+	float TOTAL=0;//Declaraçao de variaveis
+	float preço[7] = { 0,0,0,0,0,0,0, };// Declaraçao de Variavel
+
+	//menu  
+	while (opcao != 0)//Laço de repetição
+	{
+		system("cls");//Para manter o menu na parte superior da tela 
+		printf("_______________________________________________________________________________________________________________________\n\n");// Apenas para deixar visivelmente mais bonito
+		printf("\t\t\t\t\t Seja bem vindo(a) a lanchonete!\n\n");//Apresentaçãõ
+		printf("_______________________________________________________________________________________________________________________\n");// Apenas para deixar visivelmente mais bonito
+		printf("\t\t ITEM \t \t PRODUTO \t \t CÓDIGO \t \t PREÇO UNITÁRIO \t \n ");//Nichos de produtos
+		printf("\t\t 1- \t \t Cachorro Quente \t 100 \t \t\t 5,00 \n");//Produto
+		printf("\t\t 2- \t \t X-salada \t\t 101 \t\t\t 8.79 \n");//Produto
+		printf("\t\t 3- \t \t X-bacon \t\t 102 \t\t\t 9.99 \n");//Produto
+		printf("\t\t 4- \t \t Misto \t\t\t 103 \t\t\t 6.89 \n");//Produto
+		printf("\t\t 5- \t \t Salada \t\t 104  \t\t\t 4.80 \n");//Produto
+		printf("\t\t 6- \t \t Água  \t\t\t 105 \t\t\t 3.49 \n");//Produto
+		printf("\t\t 7- \t \t Refrigerante  \t\t 106 \t\t\t 4.99 \n");//Produto
+		printf("_______________________________________________________________________________________________________________________\n\n");// Apenas para deixar visivelmente mais bonito
+
+			printf("\n Informe seu pedido digitando o numero do item desejado de (1 a 7) ou 0 para finalizar o pedido: \n");// seleçao de pedido
+			scanf_s("%d", &opcao);//Guarda seleção de pedido
+
+			switch (opcao)//Laço de Repetiçao
+			{
+			case 0: // Opçao para finalizar o pedido o total.
+				if (qnt[0] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 1 Cachorro quente %d vezes = %.2f\n", qnt[0], soma = 5.00 * qnt[0]); //Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[1] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 2 X-salada %d vezes = %.2f\n", qnt[1], soma = 8.79 * qnt[1]);//Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[2] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 3 X-bacon %d vezes = %.2f\n", qnt[2], soma = 9.99 * qnt[2]);//Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[3] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 4 Misto %d vezes = %.2f\n", qnt[3], soma = 6.89 * qnt[3]);//Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[4] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 5 Salada %d vezes = %.2f\n", qnt[4], soma = 4.80 * qnt[4]);//Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[5] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 6 Água %d vezes = %.2f\n", qnt[5], soma = 3.49 * qnt[5]);//Mostra o item, quantidade e valor deste item
+				}
+				if (qnt[6] > 0)//Comparação para listagem
+				{
+					printf("Voce pediu o item 7 Refrigerante %d vezes = %.2f\n", qnt[6], soma = 4.99 * qnt[6]);//Mostra o item, quantidade e valor deste item
+				}
+				TOTAL = preço[0] + preço[1] + preço[2] + preço[3] + preço[4] + preço[5] + preço[6];//Soma o total gasto
+
+				printf("Pedido finalizado!\n");//Informa o fim do pedido
+				printf("_______________________________________________________________________________________________________________________\n\n");// Apenas para deixar visivelmente mais bonito
+				printf("\t\t\t\t\t\t\t\t\t\t\tValor total do pedido = % .2f\n\n Obrigada pela preferencia!\n", TOTAL);//Mensagem cordial no final do programa
+				system("pause");//Para o programa
+				return 0;//Fim do codigo!
+
+			case 1: // Primeiro item do pedido
+				printf("Cachorro quente\n");//Lanche 
+				printf("Digite a quantidade: \n"); //Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd); // Guarda a quantidade
+				soma = 5.00 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[0] = qnt[0] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[0] = preço[0] + (5.00 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma); // mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 2:// Segundo item do pedido
+				printf("X-salada\n");//Lanche
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 8.79 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[1] = qnt[1] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[1] = preço[1] + (8.79 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 3:// Terceiro item do pedido
+				printf("X-bacon\n");//Lanche
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 9.99 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[2] = qnt[2] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[2] = preço[2] + (9.99 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 4:// Quarto item do pedido
+				printf("Misto\n");//Lanche
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 6.89 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[3] = qnt[3] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[3] = preço[3] + (6.89 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 5:// Quinto item do pedido
+				printf("Salada\n");//Lanche
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 4.80 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[4] = qnt[4] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[4] = preço[4] + (4.80 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 6:// Sexto item do pedido
+				printf("Água\n");//Bebida
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 3.49 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final 
+				qnt[5] = qnt[5] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[5] = preço[5] + (3.49 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+
+			case 7:// Setimo item do pedido
+				printf("Refrigerante\n");//Bebida
+				printf("Digite a quantidade: \n");//Cliente escolhe a quantidade desejada
+				scanf_s("%d", &qtd);// Guarda a quantidade
+				soma = 4.99 * qtd;//Multiplica o valor pela quantidade para aparecer o valor total de cada item final  
+				qnt[6] = qnt[6] + qtd;//Guarda a quantidade na variavel para item desejado 
+				preço[6] = preço[6] + (4.99 * qtd);// Multiplica o valor do item com a quantidade para fazer o total do pedido
+				printf(" Valor do item escolhido %.2f ", soma);// mostra o valor deste item para o cliente
+				system("pause");//Pausa a case
+				break;//Para a case
+			}
+		
+    }   
+	
+		system("pause");//Pausa o programa
+		return 0; //Fim do codigo!
+	
+}
